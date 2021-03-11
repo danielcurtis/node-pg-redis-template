@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "target": "es6", // JS version to compile to
+    "module": "commonjs", // module manager
+    "rootDir": "./", // where to find typescript files
+    "outDir": "./build", // where to put compiled files
+    "esModuleInterop": true, // compile ES6 modules to commonjs
+    "strict": true // strict type-checking (1 === 1 vs 1 == '1')
+  },
+  "exclude": ["./tests/", "./node_modules/", "./dist/"]
+}
