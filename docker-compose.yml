@@ -1,0 +1,26 @@
+version: '3.7'
+
+services:
+  redis:
+    image: redis
+    container_name: cache
+    expose:
+      - 6379
+  node-template:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: base
+    links:
+      - redis
+    environment:
+      - REDIS_URL=redis://cache
+    volumes:
+      - ./src:/home/node/app/src
+      - ./nodemon.json:/home/node/app/nodemon.json
+    container_name: node-template
+    expose:
+      - '5000'
+    ports:
+      - '5000:5000'
+    command: npm run dev
