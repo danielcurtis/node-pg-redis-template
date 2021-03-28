@@ -1,7 +1,7 @@
 {
-  "name": "node-template",
+  "name": "node-pg-redis-template",
   "version": "1.0.0",
-  "description": "Node/Express template with Google OAuth2.0, PostgreSQL and Redis",
+  "description": "Dockerized Node/Express server template in TypeScript with Google OAuth2.0, PostgreSQL and Redis",
   "main": "index.ts",
   "scripts": {
     "dev": "nodemon src/index.ts",

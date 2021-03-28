@@ -1,7 +1,7 @@
 version: '3.7'
 
 services:
-  node-template:
+  node-pg-redis-template:
     build:
       target: production
     command: node build/index.js

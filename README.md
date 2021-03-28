@@ -1,6 +1,6 @@
 # Node Template
 
-A modern NodeJS/Express boilerplate using PostgreSQL, Redis, Google OAuth2.0, Typescript, and Docker!
+A modern NodeJS/Express server template using PostgreSQL, Redis, Google OAuth2.0, Typescript, and Docker!
 
 - User is authenticated by Google OAuth2.0, creating a profile in PostgreSQL and Redis
 - User can read, update, and delete ONLY their profile information

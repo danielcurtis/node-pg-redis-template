@@ -6,7 +6,7 @@ services:
     container_name: cache
     expose:
       - 6379
-  node-template:
+  node-pg-redis-template:
     build:
       context: .
       dockerfile: Dockerfile
@@ -18,7 +18,7 @@ services:
     volumes:
       - ./src:/home/node/app/src
       - ./nodemon.json:/home/node/app/nodemon.json
-    container_name: node-template
+    container_name: node-pg-redis-template
     expose:
       - '5000'
     ports:

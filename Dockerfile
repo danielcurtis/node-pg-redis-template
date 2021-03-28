@@ -21,8 +21,8 @@ ENV NODE_PATH=./dist
 RUN npm run build
 
 # ~HELPFUL COMMANDS~
-# Build image:         docker build -t <username (optional)>/node-template .
-# Run image:           docker run -p 5000:5000 -d <username (optional)>/node-template
+# Build image:         docker build -t <username (optional)>/node-pg-redis-template .
+# Run image:           docker run -p 5000:5000 -d <username (optional)>/node-pg-redis-template
 # Get container ID:    docker ps
 # Print app output:    docker logs <container id>
 # Enter the container: docker exec -it <container id> /bin/bash
