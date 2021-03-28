@@ -1,12 +1,12 @@
 {
   "name": "node-template",
   "version": "1.0.0",
-  "description": "Node/Express template with Google OAuth, Postgres, and Redis",
+  "description": "Node/Express template with Google OAuth2.0, PostgreSQL and Redis",
   "main": "index.ts",
   "scripts": {
-    "dev": "nodemon index.ts",
-    "start": "node ./build/server.js",
-    "build": "rm -rf ./build && NODE_ENV=production tsc --project ./"
+    "dev": "nodemon src/index.ts",
+    "start": "NODE_PATH=./dist node dist/index.js",
+    "build": "tsc -p ."
   },
   "keywords": [
     "nodejs",
@@ -30,8 +30,10 @@
     "@types/passport": "^1.0.6",
     "@types/passport-google-oauth20": "^2.0.6",
     "@types/pg": "^7.14.11",
+    "@types/redis": "^2.8.28",
     "@types/response-time": "^2.3.4",
     "morgan": "^1.10.0",
+    "nodemon": "^2.0.7",
     "ts-node": "^9.1.1",
     "typescript": "^4.2.3"
   },
