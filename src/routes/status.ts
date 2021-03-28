@@ -26,6 +26,6 @@ router.route('/postgres').get(status.getPostgresStatus);
  * @desc   Redis status
  * @route  GET /api/v1/status/redis
  */
-router.route('/postgres').get(status.getRedisStatus);
+router.route('/redis').get(status.getRedisStatus);
 
 export default router;

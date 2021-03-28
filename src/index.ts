@@ -4,7 +4,7 @@ import session from 'express-session'; // sessions based on tokens
 import dotenv from 'dotenv'; // create environment variables from .env files
 import helmet from 'helmet'; // create security headers on requests
 import morgan from 'morgan'; // logs helpful dev info to the CLI
-import passport from 'passport'; // Google OAuth 2.0 library
+// import passport from 'passport'; // Google OAuth 2.0 library
 import responseTime from 'response-time'; // add response time header
 
 // load environment variables

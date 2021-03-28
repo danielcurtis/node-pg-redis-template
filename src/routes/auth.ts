@@ -5,7 +5,7 @@ import { isAuth, isGuest } from '../middleware/auth';
 const router = Router();
 
 /**
- * @desc   Google authenticate
+ * @desc   Login with Google authenticate
  * @route  GET /api/v1/auth/google
  */
 router.get(
@@ -15,7 +15,7 @@ router.get(
 );
 
 /**
- * @desc   Google auth callback
+ * @desc   Redirect callback after authenticate or not authenticate
  * @route  GET /api/v1/auth/google/callback
  */
 router.get(
