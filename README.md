@@ -6,18 +6,23 @@ A modern NodeJS/Express server template using PostgreSQL, Redis, Google OAuth2.0
 - User can read, update, and delete ONLY their profile information
 - An unauthorized user can access the system status, but not any profile information
 
-## Get Started
+## To Do (dont commit!)
 
-### Perquisites
+- auth working with typescript
+- redis storage of user data on login/update/delete
+- postgres docker setup
+- postgres storage of user data on login/update/delete
+
+## Get Started
 
 **System Requirements**
 
-Using Docker:
+With Docker:
 
 - Docker Desktop
 - Make
 
-Using your system:
+Without Docker:
 
 - PostgreSQL
 - Node
@@ -39,7 +44,26 @@ Using your system:
     6. Authorized JavaScript Origins can be left blank
     7. Copy the ID and secret and save them as GOOGLE_CLIENT_ID and GOOGLE_CLIENT_SECRET in the `/config/variables.env` file
 
-### Running Locally
+**Run the application using Docker**
+
+1. Ensure Docker Desktop is running
+2. Run `make build`
+3. Run `make up`
+
+Sometimes you may need to remove containers or images:
+
+- List containers: `docker ps`
+- Remove containers: `docker rm <id>`
+- List images: `docker images`
+- Remove images: `docker rmi <id>`
+
+If you prefer or need to customize the commands, you can use the docker-compose commands directly from the Makefile.
+
+**Run the application without Docker**
+
+1. Ensure Redis and Postgres are running on the default ports
+2. Run `npm install`
+3. Run `npm run dev`
 
 ## Contributing
 
@@ -54,4 +78,4 @@ Please explain why/how your code meets the criteria above in your pull request.
 
 ## License
 
-MIT. Have fun!
+MIT. Hack away!

@@ -1,6 +1,5 @@
 import { Request, Response } from 'express';
 import redisClient from '../config/redisClient';
-
 interface IData {
   success: boolean;
   message?: string;
@@ -72,6 +71,7 @@ class StatusController {
     try {
       await redisClient.setAsync('redisStatus', JSON.stringify('OK'));
       const data = await redisClient.getAsync('redisStatus');
+
       if (JSON.parse(data) === 'OK') {
         response = this.successRes('Redis');
       }

@@ -4,14 +4,13 @@ import session from 'express-session'; // sessions based on tokens
 import dotenv from 'dotenv'; // create environment variables from .env files
 import helmet from 'helmet'; // create security headers on requests
 import morgan from 'morgan'; // logs helpful dev info to the CLI
-// import passport from 'passport'; // Google OAuth 2.0 library
 import responseTime from 'response-time'; // add response time header
 
 // load environment variables
-dotenv.config({ path: __dirname + '/config/variables.env' });
+dotenv.config({ path: __dirname + '/config/vars.env' });
 
 // import passport config
-// require('./config/passport')(passport);
+import passport from './config/passport';
 
 // import App class
 import App from './models/app';
@@ -29,8 +28,13 @@ const app = new App({
     morgan('dev'),
     helmet(),
     cors({
-      origin: 'http://localhost:3000',
+      origin: [
+        'http://localhost:3000',
+        'https://localhost',
+        'http://localhost:5000',
+      ],
       methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+      credentials: true,
       exposedHeaders: ['X-Response-Time'],
     }),
     // express session must be called before passport session
@@ -39,8 +43,8 @@ const app = new App({
       resave: false,
       saveUninitialized: false,
     }),
-    // passport.initialize(),
-    // passport.session(),
+    passport.initialize(),
+    passport.session(),
   ],
   routes: [
     { path: '/api/v1/auth', router: auth },

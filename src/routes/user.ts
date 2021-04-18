@@ -1,19 +1,19 @@
 import { Router } from 'express';
 import UserController from '../controllers/user';
+import { isAuth } from '../middleware/auth';
 
 const router = Router();
 const user = new UserController();
 
 /**
- * @desc   Create user
- * @route  POST /api/v1/user
+ * @desc   Create, read, update, or delete a user by their session
+ * @route  POST|GET|PUT|DELETE /api/v1/user
  */
-router.route('/').post(user.create);
-
-/**
- * @desc   Get, update, or delete user by ID
- * @route  GET|PUT|DELETE /api/v1/user/:id
- */
-router.route('/:id').get(user.read).put(user.update).delete(user.delete);
+router
+  .route('/')
+  .post(isAuth, user.create)
+  .get(isAuth, user.read)
+  .put(isAuth, user.update)
+  .delete(isAuth, user.delete);
 
 export default router;

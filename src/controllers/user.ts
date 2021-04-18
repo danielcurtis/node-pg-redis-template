@@ -13,7 +13,7 @@ class UserController {
     const id: number = parseInt(req.params.id);
     // find in redis, then postgres
 
-    res.status(200).json({ success: true, data: '' });
+    res.status(200).json({ success: true, name: 'dan', id: id });
   }
 
   public update(req: Request, res: Response) {

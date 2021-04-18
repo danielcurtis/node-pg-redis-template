@@ -4,13 +4,13 @@ function isAuth(req: Request, res: Response, next: NextFunction) {
   if (req.isAuthenticated()) {
     return next();
   } else {
-    res.redirect('/');
+    res.redirect('http://localhost:3000');
   }
 }
 
 function isGuest(req: Request, res: Response, next: NextFunction) {
   if (req.isAuthenticated()) {
-    res.redirect('/some-authenticated-page');
+    res.redirect('http://localhost:3000');
   } else {
     return next();
   }

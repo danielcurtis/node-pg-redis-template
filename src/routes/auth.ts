@@ -11,7 +11,7 @@ const router = Router();
 router.get(
   '/google',
   isGuest,
-  passport.authenticate('google', { scope: ['profile'] })
+  passport.authenticate('google', { scope: ['profile', 'email'] })
 );
 
 /**
@@ -20,9 +20,11 @@ router.get(
  */
 router.get(
   '/google/callback',
-  passport.authenticate('google', { failureRedirect: '/' }),
-  (_req: Request, res: Response) => {
-    res.redirect('/some-authenticated-page?');
+  passport.authenticate('google', {
+    failureRedirect: 'http://localhost:3000',
+  }),
+  (req, res) => {
+    res.redirect('http://localhost:3000');
   }
 );
 
@@ -32,7 +34,24 @@ router.get(
  */
 router.get('/logout', isAuth, (req: Request, res: Response) => {
   req.logout();
-  res.redirect('/');
+  res.redirect('http://localhost:3000/');
+});
+
+/**
+ * @desc   Return express user object
+ * @route  GET /api/v1/auth/profile
+ */
+router.get('/profile', isAuth, (req: Request, res: Response) => {
+  const user = JSON.parse(JSON.parse(JSON.stringify(req.user)));
+  res.status(200).json({ success: true, user: user });
+});
+
+/**
+ * @desc   Return is authenticated boolean
+ * @route  GET /api/v1/auth
+ */
+router.get('/', (req: Request, res: Response) => {
+  res.status(200).json({ success: true, isAuth: req.isAuthenticated() });
 });
 
 export default router;
