@@ -1,17 +1,18 @@
 # Node Template
 
-A modern NodeJS/Express server template using PostgreSQL, Redis, Google OAuth2.0, Typescript, and Docker!
+Node server template built with Express, PostgreSQL, Redis, Google OAuth2.0, Typescript, and Docker.
 
 - User is authenticated by Google OAuth2.0, creating a profile in PostgreSQL and Redis
 - User can read, update, and delete ONLY their profile information
 - An unauthorized user can access the system status, but not any profile information
 
-## To Do (dont commit!)
+## TODO:
 
-- auth working with typescript
 - redis storage of user data on login/update/delete
 - postgres docker setup
 - postgres storage of user data on login/update/delete
+- add chai/mocha tests
+- update documentation
 
 ## Get Started
 
