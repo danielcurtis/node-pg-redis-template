@@ -1,4 +1,4 @@
-# Node Template
+# Node Template - this is a work in progress
 
 Node server template built with Express, PostgreSQL, Redis, Google OAuth2.0, Typescript, and Docker.
 
